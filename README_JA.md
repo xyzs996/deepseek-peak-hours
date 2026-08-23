@@ -48,7 +48,7 @@ node conformance/run.mjs --detail
 `phase_at` を移植する(30 行ほどの退屈なコードで、スケジュールはデータです)か、Python は完全に無視して `vectors` 配列をあなたのプロジェクトのテーブル駆動テストに貼り付けてください。各項目は UTC の時刻、対応する北京時間の壁時計、期待されるフェーズ、そして「それが何を切り分けるか」の 1 行です。
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## ほかの場所
