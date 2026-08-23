@@ -46,6 +46,6 @@ python3 check_vectors.py     # 18/18 passed
 
 ## Ở nơi khác
 
-- Cùng quy tắc đó viết thành văn xuôi, đặt cạnh nhau hai phiên bản ghi chú của nhà cung cấp, và mọi mức giá được đọc lại mỗi ngày: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
+- Cùng quy tắc đó viết thành văn xuôi, đặt cạnh nhau hai phiên bản ghi chú của nhà cung cấp, và mọi mức giá được đọc lại mỗi ngày: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html> · [telegra.ph](https://telegra.ph/DeepSeek-peak-and-off-peak-hours-08-23)
 - Một máy tính áp các quy tắc này lên hóa đơn thật — chọn mô hình, nhập cơ cấu token, nó cho biết bạn đang ở phía nào của biểu giá ngay lúc này và chờ thì được bao nhiêu: <https://xyzs996.github.io/llm-cost-calculator/>
 - README tiếng Anh đầy đủ (từng vector, bảng đối chiếu kiểm thử đột biến, và mẫu khảo sát 19 bản cài đặt): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
