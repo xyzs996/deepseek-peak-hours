@@ -46,4 +46,4 @@ python3 check_vectors.py     # 18/18 passed
 
 - 같은 규칙을 산문으로. 공급자 각주를 두 언어로 나란히 인용하고, 요금은 매일 다시 읽습니다: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
 - 이 규칙을 실제 청구서에 적용하는 계산기 —— 모델을 고르고 토큰 구성을 넣으면 지금 요금표의 어느 쪽에 있는지, 기다리면 얼마인지 알려 줍니다: <https://xyzs996.github.io/llm-cost-calculator/>
-- 영어 전체 README(벡터 목록, 변이 테스트 대조표, 19개 구현 표본 조사): <https://github.com/xyzs996/deepseek-peak-offpeak-vectors/blob/main/README.md>
+- 영어 전체 README(벡터 목록, 변이 테스트 대조표, 19개 구현 표본 조사): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
