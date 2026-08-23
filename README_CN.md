@@ -48,7 +48,7 @@ node conformance/run.mjs --detail
 要么把 `phase_at` 移植过去 —— 三十来行没什么花样,时段本身是数据;要么完全不管那份 Python,把 `vectors` 数组贴进你项目里跑表驱动测试的地方。每一条是一个 UTC 时刻、它对应的北京时间挂钟、期望的档位,和一句「这条在分辨什么」。
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## 别处
