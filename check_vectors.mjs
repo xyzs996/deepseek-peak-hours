@@ -23,17 +23,36 @@ const hhmm = (text) => {
   return Number(h) * 60 + Number(m);
 };
 
+/**
+ * The ISO weekday numbers (1 = Monday) the peak windows run on at all.
+ * Required, not defaulted. A schedule that omits this field is a schedule with
+ * no weekday axis, and filling in Monday-to-Friday on its behalf is exactly
+ * the guess that puts the rule back inside the code -- where seven of nine
+ * measured projects keep it, and where nobody can correct it.
+ */
+export function peakWeekdays(schedule) {
+  if (!schedule.peak_weekdays || schedule.peak_weekdays.length === 0) {
+    throw new Error("schedule has no peak_weekdays; this rule has a weekday "
+      + "axis, so a schedule without one cannot be evaluated");
+  }
+  return new Set(schedule.peak_weekdays);
+}
+
 /** 'peak' or 'offpeak' for a UTC instant under a schedule. */
 export function phaseAt(whenMs, schedule) {
   const shifted = whenMs + schedule.calendar_utc_offset_hours * HOUR_MS;
   const effective = parse(schedule.weekend_offpeak_effective_utc);
 
-  // The weekday is read off the SHIFTED instant. Reading it off `whenMs`
-  // instead -- which is what `new Date(ms).getUTCDay()` gives you -- is the
-  // whole bug: the two calendars disagree over 16:00-24:00 UTC, and no vector
-  // against the live schedule can tell the difference.
-  const weekday = (Math.floor(shifted / DAY_MS) + 4) % 7; // 0 = Sunday
-  if (whenMs >= effective && (weekday === 0 || weekday === 6)) return "offpeak";
+  // Two separate things, both load-bearing. WHICH days are peak days comes
+  // from the schedule, not from this file. WHICH CALENDAR the day is counted
+  // on is the SHIFTED instant: reading it off `whenMs` -- which is what
+  // `new Date(ms).getUTCDay()` gives you -- is the whole bug, because the two
+  // calendars disagree over 16:00-24:00 UTC and no vector against the live
+  // schedule can tell the difference.
+  const weekday = ((Math.floor(shifted / DAY_MS) + 3) % 7) + 1; // 1 = Monday
+  if (whenMs >= effective && !peakWeekdays(schedule).has(weekday)) {
+    return "offpeak";
+  }
 
   const d = new Date(whenMs);
   const minuteOfDay = d.getUTCHours() * 60 + d.getUTCMinutes();
@@ -69,6 +88,29 @@ export function nextChange(whenMs, schedule) {
 const iso = (ms) => new Date(ms).toISOString().replace(/\.\d{3}Z$/, "Z");
 const pad = (text, width) => String(text).padEnd(width);
 
+/**
+ * Prove this file READS `peak_weekdays` instead of hard-coding the weekend.
+ *
+ * None of the vectors above can prove it. The live rule's non-peak days are
+ * Saturday and Sunday, so reading the field and hard-coding the weekend agree
+ * at all 168 hours of the week -- an implementation that ignores the field
+ * passes every vector, and then bills the wrong day the first time a vendor
+ * moves the rule.
+ *
+ * So: take the synthetic schedule, add Saturday to its peak days, and ask for
+ * a Beijing Saturday inside its window. Reading the field flips the answer;
+ * hard-coding the weekend does not.
+ */
+export function configCheck(schedules) {
+  const at = parse("2026-08-28T16:30:00Z");     // Beijing Sat 2026-08-29 00:30
+  const five = schedules["synthetic-overnight-peak"];
+  const six = { ...five, peak_weekdays: [1, 2, 3, 4, 5, 6] };
+  return [
+    ["peak_weekdays=1-5, Beijing Sat 00:30 -> offpeak", phaseAt(at, five), "offpeak"],
+    ["peak_weekdays=1-6, same instant     -> peak", phaseAt(at, six), "peak"],
+  ];
+}
+
 function main() {
   const url = new URL("./deepseek-peak-offpeak-vectors.json", import.meta.url);
   const doc = JSON.parse(readFileSync(url, "utf8"));
@@ -93,7 +135,15 @@ function main() {
     if (!ok) failed.push(b.from_utc);
   }
 
-  const total = doc.vectors.length + doc.next_boundary_vectors.length;
+  const checks = configCheck(schedules);
+  for (const [label, got, want] of checks) {
+    const ok = got === want;
+    console.log(`${ok ? "ok  " : "FAIL"} config  ${label}  got ${got}`);
+    if (!ok) failed.push(label);
+  }
+
+  const total = doc.vectors.length + doc.next_boundary_vectors.length
+    + checks.length;
   console.log(`\n${total - failed.length}/${total} passed`);
   return failed.length > 0 ? 1 : 0;
 }
