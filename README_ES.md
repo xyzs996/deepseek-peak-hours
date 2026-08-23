@@ -48,7 +48,7 @@ Las dos citas se dejan en su idioma original: son la prueba, y traducidas dejan 
 O portas `phase_at` — son treinta líneas aburridas y el horario es un dato — o ignoras el Python por completo y pegas el array `vectors` en lo que tu proyecto use para pruebas dirigidas por tabla. Cada entrada es un instante UTC, el reloj de pared de Pekín que le corresponde, la fase esperada y una línea sobre qué distingue.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## En otra parte
