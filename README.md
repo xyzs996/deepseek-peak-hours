@@ -140,6 +140,8 @@ weekend vectors. Each of the seven has an issue open on its own tracker with the
 failing instants and a patch in its own language; the directory is that finding
 made re-runnable, and rows get re-run when a project says it is fixed.
 
+The live scoreboard is [issue #1](https://github.com/xyzs996/deepseek-peak-hours/issues/1) — pinned, one row per project, each linked to its own tracker. Fixed it? Say so there and the row is re-run the same day. Think I transcribed your predicate wrong? That is a bug here, not a finding about your project, and it gets corrected there.
+
 If you think a vector's *expectation* is wrong — in particular if you read the
 English footnote as UTC weekdays — open an issue on the vectors and say which
 instant should flip. The table follows the vectors.
