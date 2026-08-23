@@ -147,6 +147,10 @@ candidate, which skips weekend-resident edges without special-casing them.
 
 ## Elsewhere
 
+The same rule in prose, with both language versions of the vendor footnote
+quoted side by side and every rate re-read daily:
+<https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>.
+
 A cost calculator that applies these rules to a real bill — pick a model, put
 in your token mix, and it tells you which side of the rate card you are on right
 now and what waiting is worth: <https://xyzs996.github.io/llm-cost-calculator/>.
