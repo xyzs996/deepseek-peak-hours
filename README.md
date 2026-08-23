@@ -76,27 +76,34 @@ discriminates.
 ## Where the sample came from
 
 On 2026-08-23, the first day the rule applied, I read the pricing function of
-19 DeepSeek cost/usage plugins, gateways and price catalogues. Three had the
-weekend rule right. The rest split between two failure shapes: an hour-only
-branch that bills a weekend call at twice the correct rate, and — in two of
-the config-driven ones — a schema with no weekday axis at all, where the rule
-cannot be expressed no matter how the code is written. Reports are filed on
-each. This is a one-day snapshot of a moving target, not a ranking, and it
-will go stale.
+19 DeepSeek cost/usage plugins, gateways and price catalogues. Four had the
+weekend rule right. One had the machinery right and the default config stale —
+a `weekdays` field that exists, is honoured everywhere, and is simply absent
+from the shipped defaults. The remaining fourteen split between two failure
+shapes: an hour-only branch that bills a weekend call at twice the correct
+rate, and — in two of the config-driven ones — a schema with no weekday axis at
+all, where the rule cannot be expressed no matter how the code is written.
+Reports are filed on each. This is a one-day snapshot of a moving target, not a
+ranking, and it will go stale.
 
 The schema cases are the ones worth catching early: adding a day-of-week
 dimension before a pricing config ships is a field, and afterwards it is a
 migration.
 
-The three that had it right, if you want a reference besides this one:
+The four that had it right, if you want a reference besides this one:
 [`Han-1413141/dsh-cost-meter`](https://github.com/Han-1413141/dsh-cost-meter)
 (including the countdown to Monday);
 [`xiufengsun/TokenTracker`](https://github.com/xiufengsun/TokenTracker), whose
 comment says it plainly — *"The weekend is bounded in Beijing time, so it runs
-16:00Z Friday to 16:00Z Sunday"*; and
+16:00Z Friday to 16:00Z Sunday"*;
 [`Calcium-Ion/new-api`](https://github.com/Calcium-Ion/new-api), which sidesteps
 the problem by making the billing rule an expression with `hour(tz)` and
-`weekday(tz)` taking the same timezone argument.
+`weekday(tz)` taking the same timezone argument; and
+[`zeronx798/LiangWenPeak`](https://github.com/zeronx798/LiangWenPeak), which
+gets both axes for free by carrying a `BeijingTime` type — the weekday is read
+off `LocalDate()`, so there is no unshifted instant to read it off by mistake —
+and finds the next boundary by comparing the phase either side of each
+candidate, which skips weekend-resident edges without special-casing them.
 
 ## Elsewhere
 
