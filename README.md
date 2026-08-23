@@ -11,13 +11,15 @@ midnight UTC.
 ```
 git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
 node conformance/run.mjs --detail     # nine published DeepSeek billing plugins. two pass.
-python3 check_vectors.py              # 18/18
-node check_vectors.mjs                # 18/18, same program, no dependencies
+python3 check_vectors.py              # 20/20
+node check_vectors.mjs                # 20/20, same program, no dependencies
 ```
 
-Fifteen dated boundary vectors, a ~30-line reference implementation in two
-languages, and [a conformance harness](./conformance/) that runs the vectors
-against the actual peak predicate of nine published plugins. On 2026-08-23,
+Eighteen dated boundary vectors, two checks that the reference implementation
+reads the weekday axis out of the schedule instead of hard-coding a weekend,
+a ~30-line reference implementation in two languages, and [a conformance
+harness](./conformance/) that runs the vectors against the actual peak
+predicate of nine published plugins. On 2026-08-23,
 seven of the nine billed the weekend at double, and every one of them had the
 hour arithmetic right — what they were missing was a place to put the weekday.
 
@@ -73,8 +75,8 @@ are `2026-08-28T16:30:00Z` and `2026-08-30T16:30:00Z` — open an issue on those
 two rather than on prose.
 
 ```
-python3 check_vectors.py            # 18/18 passed
-node check_vectors.mjs              # 18/18 passed — same program, no dependencies
+python3 check_vectors.py            # 20/20 passed
+node check_vectors.mjs              # 20/20 passed — same program, no dependencies
 node conformance/run.mjs --detail   # the same vectors against nine published plugins
 ```
 
