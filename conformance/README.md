@@ -66,6 +66,8 @@ project.** Open an issue and it gets corrected and re-run.
 
 ## If you fixed it
 
+Comment on the pinned scoreboard, [issue #1](https://github.com/xyzs996/deepseek-peak-hours/issues/1) — it carries the same nine rows, each linked to its own tracker, and it is where rows get marked done. Or here:
+
 Open an issue or a PR here with the new commit and the row gets re-run and
 updated. If you think a vector's *expectation* is wrong — in particular if you
 read the English footnote as UTC weekdays rather than Beijing weekdays — the
