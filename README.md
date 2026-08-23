@@ -1,7 +1,13 @@
-# DeepSeek peak/off-peak: conformance vectors
+# DeepSeek peak and off-peak hours — Beijing weekdays, not UTC
 
-A small, dated test table for DeepSeek's peak/off-peak billing rule, plus a
-~30-line reference implementation that the table is checked against.
+Peak is **Beijing 09:00–12:00 and 14:00–18:00, Monday to Friday** — `01:00-04:00`
+and `06:00-10:00` UTC — and off-peak, everything else, is half price. Since
+2026-08-23 the whole weekend is off-peak, and that weekend is bounded in Beijing
+time: it runs from **16:00 UTC Friday to 16:00 UTC Sunday**, not midnight to
+midnight UTC.
+
+This repository is the dated test table that pins those edges, plus a ~30-line
+reference implementation that the table is checked against.
 
 Source, read 2026-08-22 — <https://api-docs.deepseek.com/quick_start/pricing/>:
 
