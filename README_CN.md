@@ -46,4 +46,4 @@ python3 check_vectors.py     # 18/18 passed
 
 - 同一条规则的散文版,两版厂商原话并排、价格每天重读一遍: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
 - 把这些规则套到真实账单上的计算器 —— 选模型、填 token 结构,它告诉你此刻在价目表的哪一侧、等一等值多少钱: <https://xyzs996.github.io/llm-cost-calculator/>
-- 完整英文版自述(含逐条向量、变异测试对照表,以及那份 19 个实现的抽样): <https://github.com/xyzs996/deepseek-peak-offpeak-vectors/blob/main/README.md>
+- 完整英文版自述(含逐条向量、变异测试对照表,以及那份 19 个实现的抽样): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
