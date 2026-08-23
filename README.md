@@ -8,13 +8,16 @@ and `06:00-10:00` UTC — and off-peak, everything else, is half price. Since
 time: it runs from **16:00 UTC Friday to 16:00 UTC Sunday**, not midnight to
 midnight UTC.
 
+**Is it peak right now?**
+[This page answers it live](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html)
+— it resolves the clock in your browser, applies the weekday and the weekend
+rule, and tells you which side of the rate card you are on and how long until
+that changes. No account, nothing to install. The same page has the rule in
+prose: both language versions of the vendor footnote quoted side by side, the
+rates, and what the discrepancy costs.
+
 This repository is the dated test table that pins those edges, plus a ~30-line
 reference implementation that the table is checked against.
-
-If you want the rule in prose rather than as vectors — both language versions of
-the vendor footnote quoted side by side, the rates, and what the discrepancy costs
-— that is
-[DeepSeek peak and off-peak hours](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html).
 
 Source, read 2026-08-22 — <https://api-docs.deepseek.com/quick_start/pricing/>:
 
