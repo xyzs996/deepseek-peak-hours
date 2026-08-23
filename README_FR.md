@@ -48,7 +48,7 @@ Les deux citations restent dans leur langue d'origine : ce sont des preuves, et 
 Soit vous portez `phase_at` — trente lignes sans surprise, l'horaire étant une donnée — soit vous ignorez complètement le Python et collez le tableau `vectors` dans ce que votre projet utilise pour les tests pilotés par table. Chaque entrée est un instant UTC, l'heure murale pékinoise correspondante, la phase attendue, et une ligne sur ce qu'elle discrimine.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## Ailleurs
