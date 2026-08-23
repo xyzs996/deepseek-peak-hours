@@ -4,6 +4,8 @@
 
 Les heures pleines vont du **lundi au vendredi, 09:00–12:00 et 14:00–18:00 heure de Pékin** — soit `01:00-04:00` et `06:00-10:00` UTC — et tout le reste est en heures creuses, à moitié prix. Depuis le 2026-08-23, le week-end entier est en heures creuses, et ce week-end est borné à l'heure de Pékin : il court **du vendredi 16:00 UTC au dimanche 16:00 UTC**, et non de minuit à minuit UTC. Ce dépôt est la table de tests datée qui fixe ces bornes, plus une implémentation de référence d'une trentaine de lignes.
 
+**Sommes-nous en heures pleines en ce moment ?** [Cette page y répond en direct](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) : elle résout l'horloge dans votre navigateur, applique la règle du jour de la semaine et celle du week-end, puis vous dit de quel côté du tarif vous êtes et dans combien de temps cela change. Sans compte, sans rien à installer.
+
 ## Tarifs (USD par million de tokens, creuses / pleines)
 
 | Modèle | Entrée, cache touché | Entrée, cache manqué | Sortie |
