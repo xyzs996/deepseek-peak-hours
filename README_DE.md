@@ -46,4 +46,4 @@ python3 check_vectors.py     # 18/18 passed
 
 - Dieselbe Regel in Prosa, beide Sprachfassungen der Anbieter-Fußnote nebeneinander, und jeder Tarif täglich neu gelesen: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
 - Ein Rechner, der diese Regeln auf eine echte Rechnung anwendet — Modell wählen, Token-Mix eintragen, und er sagt Ihnen, auf welcher Seite der Preisliste Sie gerade stehen und was Warten wert ist: <https://xyzs996.github.io/llm-cost-calculator/>
-- Das vollständige englische README (Vektoren im Einzelnen, die Mutationstabelle und die Stichprobe aus 19 Implementierungen): <https://github.com/xyzs996/deepseek-peak-offpeak-vectors/blob/main/README.md>
+- Das vollständige englische README (Vektoren im Einzelnen, die Mutationstabelle und die Stichprobe aus 19 Implementierungen): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
