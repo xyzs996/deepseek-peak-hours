@@ -46,6 +46,6 @@ python3 check_vectors.py     # 18/18 passed
 
 ## Di tempat lain
 
-- Aturan yang sama dalam prosa, dua versi catatan kaki penyedia berdampingan, dan setiap tarif dibaca ulang tiap hari: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
+- Aturan yang sama dalam prosa, dua versi catatan kaki penyedia berdampingan, dan setiap tarif dibaca ulang tiap hari: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html> · [telegra.ph](https://telegra.ph/DeepSeek-peak-and-off-peak-hours-08-23)
 - Kalkulator yang menerapkan aturan ini pada tagihan sungguhan — pilih model, isi komposisi token, dan ia memberi tahu Anda ada di sisi mana daftar tarif saat ini dan berapa nilainya kalau menunggu: <https://xyzs996.github.io/llm-cost-calculator/>
 - README bahasa Inggris lengkap (vektor satu per satu, tabel uji mutasi, dan sampel 19 implementasi): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
