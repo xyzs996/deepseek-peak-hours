@@ -17,6 +17,10 @@ peak windows are Beijing 09:00–12:00 and 14:00–18:00, i.e. `01:00-04:00` and
 python3 check_vectors.py     # 18/18 passed
 ```
 
+Used in anger by <https://xyzs996.github.io/llm-cost-calculator/>, whose
+`test/check.mjs` downloads this table rather than vendoring it — so if a vector
+here changes, that page's clock is re-checked against the new one.
+
 Public domain (CC0-1.0). Corrections welcome — if a vector is wrong I would
 rather hear it than keep shipping it.
 
@@ -106,6 +110,10 @@ and finds the next boundary by comparing the phase either side of each
 candidate, which skips weekend-resident edges without special-casing them.
 
 ## Elsewhere
+
+A cost calculator that applies these rules to a real bill — pick a model, put
+in your token mix, and it tells you which side of the rate card you are on right
+now and what waiting is worth: <https://xyzs996.github.io/llm-cost-calculator/>.
 
 The price table these numbers are kept in, updated daily:
 <https://xyzs996.github.io/llm-api-pricing/prices.html>. The write-ups behind
