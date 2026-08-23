@@ -48,7 +48,7 @@ Beide Zitate bleiben in der Originalsprache: sie sind der Beleg, und übersetzt 
 Entweder portieren Sie `phase_at` — dreißig langweilige Zeilen, und der Fahrplan ist bloß Daten — oder Sie ignorieren das Python ganz und fügen das `vectors`-Array in das ein, was Ihr Projekt für tabellengetriebene Tests nutzt. Jeder Eintrag ist ein UTC-Zeitpunkt, die zugehörige Pekinger Wanduhrzeit, die erwartete Phase und eine Zeile dazu, was er unterscheidet.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## Anderswo
