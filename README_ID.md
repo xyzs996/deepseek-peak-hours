@@ -48,7 +48,7 @@ Kedua kutipan dibiarkan dalam bahasa aslinya: itu bukti, dan begitu diterjemahka
 Silakan porting `phase_at` — tiga puluh baris yang membosankan, dan jadwalnya cuma data — atau abaikan sama sekali bagian Python-nya dan tempelkan larik `vectors` ke apa pun yang proyek Anda pakai untuk uji berbasis tabel. Tiap entri berisi satu saat UTC, jam dinding Beijing yang bersesuaian, fase yang diharapkan, dan satu baris tentang apa yang dibedakannya.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## Di tempat lain
