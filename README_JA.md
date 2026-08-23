@@ -6,6 +6,13 @@
 
 **いまはピークか、オフピークか。** [このページがその場で答えます](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) —— ブラウザ側でこの時計を解き、曜日と週末のルールを両方あてはめて、いまどちらの料金帯にいるのか、切り替わるまであと何時間かを表示します。登録もインストールも不要です。
 
+**公開されている DeepSeek 課金プラグイン 9 個をこの表に通したところ、全問通過は 2 個でした。** 依存なし、Node 16+。各プロジェクトの判定関数はコミットを固定して `conformance/adapters.mjs` に書き写してあります。
+
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail
+```
+
 ## 価格(100 万トークンあたり USD、オフピーク / ピーク)
 
 | モデル | 入力・キャッシュヒット | 入力・キャッシュミス | 出力 |
