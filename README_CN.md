@@ -6,6 +6,13 @@
 
 **现在是高峰还是空闲?** [这一页当场算给你看](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) —— 它在你浏览器里解这套钟点,把星期和周末那条规则一起算进去,告诉你此刻落在哪一档、还有多久换档。不用注册,不用装东西。
 
+**九个已发布的 DeepSeek 计费插件,用这张表跑了一遍:两个全过。** 零依赖,Node 16+;每份判峰函数按 commit 抄在 `conformance/adapters.mjs` 里,抄错了是我的账,说一声我改了重跑。
+
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail
+```
+
 ## 价格(美元/百万 tokens,空闲 / 高峰)
 
 | 模型 | 输入·缓存命中 | 输入·缓存未命中 | 输出 |
