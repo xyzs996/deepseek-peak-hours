@@ -76,18 +76,32 @@ discriminates.
 ## Where the sample came from
 
 On 2026-08-23, the first day the rule applied, I read the pricing function of
-15 DeepSeek cost/usage plugins and gateways. Two handled the weekend rule
-correctly; eight computed a Beijing hour and stopped there, so a weekend call
-was billed at twice the correct rate. Reports are filed on each — this is a
-one-day snapshot of a moving target, not a ranking, and I have not re-checked
-it since.
+19 DeepSeek cost/usage plugins, gateways and price catalogues. Three had the
+weekend rule right. The rest split between two failure shapes: an hour-only
+branch that bills a weekend call at twice the correct rate, and — in two of
+the config-driven ones — a schema with no weekday axis at all, where the rule
+cannot be expressed no matter how the code is written. Reports are filed on
+each. This is a one-day snapshot of a moving target, not a ranking, and it
+will go stale.
 
-Two that had it right, if you want a second reference besides this one:
+The schema cases are the ones worth catching early: adding a day-of-week
+dimension before a pricing config ships is a field, and afterwards it is a
+migration.
+
+The three that had it right, if you want a reference besides this one:
 [`Han-1413141/dsh-cost-meter`](https://github.com/Han-1413141/dsh-cost-meter)
-(including the countdown to Monday) and
+(including the countdown to Monday);
 [`xiufengsun/TokenTracker`](https://github.com/xiufengsun/TokenTracker), whose
-comment says it plainly: *"The weekend is bounded in Beijing time, so it runs
-16:00Z Friday to 16:00Z Sunday."*
+comment says it plainly — *"The weekend is bounded in Beijing time, so it runs
+16:00Z Friday to 16:00Z Sunday"*; and
+[`Calcium-Ion/new-api`](https://github.com/Calcium-Ion/new-api), which sidesteps
+the problem by making the billing rule an expression with `hour(tz)` and
+`weekday(tz)` taking the same timezone argument.
 
-The price table these numbers are kept in is at
-<https://xyzs996.github.io/llm-api-pricing/prices.html>.
+## Elsewhere
+
+The price table these numbers are kept in, updated daily:
+<https://xyzs996.github.io/llm-api-pricing/prices.html>. The write-ups behind
+it are at <https://xyzs996.github.io/llm-api-pricing/> — mostly about what
+these costs do to a small budget in practice, which is a different question
+from what the rate card says.
