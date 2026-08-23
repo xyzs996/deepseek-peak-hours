@@ -46,6 +46,6 @@ python3 check_vectors.py     # 18/18 passed
 
 ## Ailleurs
 
-- La même règle en prose, les deux versions de la note du fournisseur côte à côte, et chaque tarif relu chaque jour : <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
+- La même règle en prose, les deux versions de la note du fournisseur côte à côte, et chaque tarif relu chaque jour : <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html> · [telegra.ph](https://telegra.ph/DeepSeek-peak-and-off-peak-hours-08-23)
 - Un calculateur qui applique ces règles à une facture réelle : choisissez un modèle, entrez votre répartition de tokens, il vous dit de quel côté du tarif vous êtes en ce moment et ce que vaut l'attente : <https://xyzs996.github.io/llm-cost-calculator/>
 - Le README anglais complet (vecteurs détaillés, table des mutations, et l'échantillon de 19 implémentations) : <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
