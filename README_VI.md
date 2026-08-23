@@ -4,6 +4,8 @@
 
 Cao điểm là **thứ Hai đến thứ Sáu, 09:00–12:00 và 14:00–18:00 giờ Bắc Kinh** — tức `01:00-04:00` và `06:00-10:00` UTC — mọi giờ còn lại là thấp điểm, giá bằng một nửa. Từ 2026-08-23, cả cuối tuần đều là thấp điểm, và cuối tuần đó được tính theo giờ Bắc Kinh: nó chạy **từ 16:00 UTC thứ Sáu đến 16:00 UTC Chủ nhật**, không phải từ nửa đêm đến nửa đêm UTC. Kho này là bảng kiểm thử có ghi ngày ghim những ranh giới đó, kèm một bản cài đặt tham chiếu khoảng ba mươi dòng.
 
+**Bây giờ là giờ cao điểm hay thấp điểm?** [Trang này trả lời ngay](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) — nó tính đồng hồ ngay trên trình duyệt của bạn, áp dụng cả quy tắc ngày trong tuần lẫn quy tắc cuối tuần, rồi cho biết bạn đang ở mức giá nào và còn bao lâu nữa thì đổi. Không cần tài khoản, không cần cài gì.
+
 ## Giá (USD trên mỗi triệu token, thấp điểm / cao điểm)
 
 | Mô hình | Đầu vào, trúng cache | Đầu vào, trượt cache | Đầu ra |
