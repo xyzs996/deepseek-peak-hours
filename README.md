@@ -160,6 +160,9 @@ candidate, which skips weekend-resident edges without special-casing them.
 The same rule in prose, with both language versions of the vendor footnote
 quoted side by side and every rate re-read daily:
 <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>.
+If that host is blocked where you are, the same piece is mirrored as
+plain static HTML with no scripts and no account:
+<https://telegra.ph/DeepSeek-peak-and-off-peak-hours-08-23>.
 
 A cost calculator that applies these rules to a real bill — pick a model, put
 in your token mix, and it tells you which side of the rate card you are on right
