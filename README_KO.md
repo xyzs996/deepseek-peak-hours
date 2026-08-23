@@ -6,6 +6,13 @@
 
 **지금은 피크인가, 오프피크인가?** [이 페이지가 즉시 답합니다](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) — 브라우저에서 이 시계를 계산하고 요일 규칙과 주말 규칙을 함께 적용해, 지금 어느 요금 구간에 있고 언제 바뀌는지 알려줍니다. 가입도 설치도 필요 없습니다.
 
+**공개된 DeepSeek 과금 플러그인 9개를 이 표로 돌려보면 전부 통과하는 것은 2개입니다.** 의존성 없음, Node 16+. 각 프로젝트의 판정 함수는 커밋을 고정해 `conformance/adapters.mjs`에 옮겨 적었습니다.
+
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail
+```
+
 ## 가격(100만 토큰당 USD, 오프피크 / 피크)
 
 | 모델 | 입력·캐시 적중 | 입력·캐시 미스 | 출력 |
