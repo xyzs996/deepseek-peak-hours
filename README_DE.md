@@ -4,6 +4,8 @@
 
 Peak ist **Montag bis Freitag, 09:00–12:00 und 14:00–18:00 Pekinger Zeit** — also `01:00-04:00` und `06:00-10:00` UTC — alles andere ist Off-Peak zum halben Preis. Seit dem 2026-08-23 ist das gesamte Wochenende Off-Peak, und dieses Wochenende ist in Pekinger Zeit begrenzt: es läuft **von Freitag 16:00 UTC bis Sonntag 16:00 UTC**, nicht von Mitternacht bis Mitternacht UTC. Dieses Repository ist die datierte Testtabelle, die diese Kanten festnagelt, plus eine Referenzimplementierung von rund dreißig Zeilen.
 
+**Ist gerade Peak oder Off-Peak?** [Diese Seite beantwortet das live](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) – sie löst die Uhr im Browser auf, wendet die Wochentags- und die Wochenendregel an und sagt Ihnen, auf welcher Seite des Tarifs Sie stehen und wie lange es noch dauert, bis sich das ändert. Ohne Konto, ohne Installation.
+
 ## Preise (USD je Million Tokens, Off-Peak / Peak)
 
 | Modell | Eingabe, Cache-Treffer | Eingabe, Cache-Fehltreffer | Ausgabe |
