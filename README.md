@@ -9,6 +9,11 @@ midnight UTC.
 This repository is the dated test table that pins those edges, plus a ~30-line
 reference implementation that the table is checked against.
 
+If you want the rule in prose rather than as vectors — both language versions of
+the vendor footnote quoted side by side, the rates, and what the discrepancy costs
+— that is
+[DeepSeek peak and off-peak hours](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html).
+
 Source, read 2026-08-22 — <https://api-docs.deepseek.com/quick_start/pricing/>:
 
 > Effective 00:00 (Beijing Time) on Sunday, August 23, 2026, we will adjust our
