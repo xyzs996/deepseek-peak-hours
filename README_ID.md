@@ -4,6 +4,8 @@
 
 Peak adalah **Senin sampai Jumat, 09:00–12:00 dan 14:00–18:00 waktu Beijing** — yaitu `01:00-04:00` dan `06:00-10:00` UTC — dan selebihnya off-peak dengan harga separuh. Sejak 2026-08-23 seluruh akhir pekan off-peak, dan akhir pekan itu dibatasi dalam waktu Beijing: berjalan **dari Jumat 16:00 UTC sampai Minggu 16:00 UTC**, bukan tengah malam ke tengah malam UTC. Repositori ini adalah tabel uji bertanggal yang mengunci batas-batas itu, ditambah implementasi rujukan sekitar tiga puluh baris.
 
+**Sekarang jam sibuk atau bukan?** [Halaman ini menjawabnya langsung](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) — ia menghitung jam ini di peramban Anda, menerapkan aturan hari kerja sekaligus aturan akhir pekan, lalu memberi tahu Anda ada di sisi tarif yang mana dan berapa lama lagi sampai berubah. Tanpa akun, tanpa perlu memasang apa pun.
+
 ## Harga (USD per juta token, off-peak / peak)
 
 | Model | Masukan, cache kena | Masukan, cache meleset | Keluaran |
