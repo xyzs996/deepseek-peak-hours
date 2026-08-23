@@ -6,6 +6,13 @@ Peak adalah **Senin sampai Jumat, 09:00–12:00 dan 14:00–18:00 waktu Beijing*
 
 **Sekarang jam sibuk atau bukan?** [Halaman ini menjawabnya langsung](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) — ia menghitung jam ini di peramban Anda, menerapkan aturan hari kerja sekaligus aturan akhir pekan, lalu memberi tahu Anda ada di sisi tarif yang mana dan berapa lama lagi sampai berubah. Tanpa akun, tanpa perlu memasang apa pun.
 
+**Sembilan plugin penagihan DeepSeek yang sudah dipublikasikan, dijalankan terhadap tabel ini: dua lolos semuanya.** Tanpa dependensi, Node 16+; fungsi penentu jam sibuk tiap proyek disalin ke `conformance/adapters.mjs` dan dipatok ke satu commit.
+
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail
+```
+
 ## Harga (USD per juta token, off-peak / peak)
 
 | Model | Masukan, cache kena | Masukan, cache meleset | Keluaran |
