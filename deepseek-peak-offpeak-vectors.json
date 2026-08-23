@@ -21,6 +21,14 @@
           "10:00"
         ]
       ],
+      "peak_weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "peak_weekdays_note": "ISO-8601 weekday numbers, 1 = Monday. Read on calendar_timezone, not on UTC. Both statements are load-bearing: an implementation that hard-codes Saturday and Sunday agrees with this field at all 168 hours of the live schedule, and one that reads the weekday off the UTC instant agrees with it everywhere except 16:00-24:00 UTC.",
       "weekend_offpeak_effective_utc": "2026-08-22T16:00:00Z",
       "offpeak_multiplier": 0.5
     },
@@ -34,6 +42,14 @@
           "22:00"
         ]
       ],
+      "peak_weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "peak_weekdays_note": "ISO-8601 weekday numbers, 1 = Monday. Read on calendar_timezone, not on UTC. Both statements are load-bearing: an implementation that hard-codes Saturday and Sunday agrees with this field at all 168 hours of the live schedule, and one that reads the weekday off the UTC instant agrees with it everywhere except 16:00-24:00 UTC.",
       "weekend_offpeak_effective_utc": "2026-08-22T16:00:00Z",
       "offpeak_multiplier": 0.5
     }
