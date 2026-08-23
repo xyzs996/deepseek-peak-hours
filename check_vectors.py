@@ -25,16 +25,33 @@ def hhmm(text):
     return int(h) * 60 + int(m)
 
 
+def peak_weekdays(schedule):
+    """The ISO weekday numbers (1 = Monday) the peak windows run on at all.
+
+    Required, not defaulted. A schedule that omits this field is a schedule
+    with no weekday axis, and filling in Monday-to-Friday on its behalf is
+    exactly the guess that puts the rule back inside the code -- where seven
+    of nine measured projects keep it, and where nobody can correct it.
+    """
+    days = schedule.get("peak_weekdays")
+    if not days:
+        raise KeyError("schedule has no peak_weekdays; this rule has a weekday "
+                       "axis, so a schedule without one cannot be evaluated")
+    return set(days)
+
+
 def phase_at(when, schedule):
     """'peak' or 'offpeak' for a UTC instant under a schedule."""
     offset = timedelta(hours=schedule["calendar_utc_offset_hours"])
     local = when + offset
     effective = parse(schedule["weekend_offpeak_effective_utc"])
 
-    # The weekday is read off the SHIFTED instant. Reading it off `when`
-    # instead is the whole bug: the two calendars disagree over 16:00-24:00
-    # UTC, and no vector against the live schedule can tell the difference.
-    if when >= effective and local.weekday() >= 5:  # 5 = Saturday, 6 = Sunday
+    # Two separate things, both load-bearing. WHICH days are peak days comes
+    # from the schedule, not from this file. WHICH CALENDAR the day is counted
+    # on is the shifted instant, not `when`: the two calendars disagree over
+    # 16:00-24:00 UTC, and no vector against the live schedule can tell the
+    # difference.
+    if when >= effective and local.isoweekday() not in peak_weekdays(schedule):
         return "offpeak"
 
     minute_of_day = when.hour * 60 + when.minute
@@ -62,6 +79,28 @@ def next_change(when, schedule):
     raise AssertionError("no boundary within nine days")
 
 
+def config_check(schedules):
+    """Prove this file READS `peak_weekdays` instead of hard-coding the weekend.
+
+    None of the vectors above can prove it. The live rule's non-peak days are
+    Saturday and Sunday, so `local.isoweekday() not in {1,2,3,4,5}` and a
+    hard-coded `>= 5` agree at all 168 hours of the week -- an implementation
+    that ignores the field passes every vector, and then bills the wrong day
+    the first time a vendor moves the rule.
+
+    So: take the synthetic schedule, add Saturday to its peak days, and ask for
+    a Beijing Saturday inside its window. Reading the field flips the answer;
+    hard-coding the weekend does not.
+    """
+    at = parse("2026-08-28T16:30:00Z")          # Beijing Sat 2026-08-29 00:30
+    five = schedules["synthetic-overnight-peak"]
+    six = dict(five, peak_weekdays=[1, 2, 3, 4, 5, 6])
+    return [("peak_weekdays=1-5, Beijing Sat 00:30 -> offpeak",
+             phase_at(at, five), "offpeak"),
+            ("peak_weekdays=1-6, same instant     -> peak",
+             phase_at(at, six), "peak")]
+
+
 def main():
     doc = json.load(open("deepseek-peak-offpeak-vectors.json", encoding="utf-8"))
     schedules = doc["schedules"]
@@ -85,7 +124,15 @@ def main():
         if not ok:
             failed.append(b["from_utc"])
 
-    total = len(doc["vectors"]) + len(doc["next_boundary_vectors"])
+    checks = config_check(schedules)
+    for label, got, want in checks:
+        ok = got == want
+        print(f"{'ok  ' if ok else 'FAIL'} config  {label}  got {got}")
+        if not ok:
+            failed.append(label)
+
+    total = (len(doc["vectors"]) + len(doc["next_boundary_vectors"])
+             + len(checks))
     print(f"\n{total - len(failed)}/{total} passed")
     return 1 if failed else 0
 
