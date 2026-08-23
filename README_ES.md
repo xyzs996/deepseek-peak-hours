@@ -46,4 +46,4 @@ python3 check_vectors.py     # 18/18 passed
 
 - La misma regla en prosa, con las dos versiones de la nota del proveedor una junto a otra y cada tarifa releída a diario: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
 - Una calculadora que aplica estas reglas a una factura real: eliges modelo, pones tu mezcla de tokens y te dice de qué lado del tarifario estás ahora mismo y cuánto vale esperar: <https://xyzs996.github.io/llm-cost-calculator/>
-- El README completo en inglés (vectores uno a uno, la tabla de mutaciones y la muestra de 19 implementaciones): <https://github.com/xyzs996/deepseek-peak-offpeak-vectors/blob/main/README.md>
+- El README completo en inglés (vectores uno a uno, la tabla de mutaciones y la muestra de 19 implementaciones): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
