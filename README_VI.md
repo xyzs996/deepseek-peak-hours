@@ -48,7 +48,7 @@ Hai trích dẫn được giữ nguyên ngôn ngữ gốc: chúng là bằng ch�
 Hoặc bạn chuyển `phase_at` sang — ba mươi dòng buồn tẻ và lịch trình chỉ là dữ liệu — hoặc bỏ qua hẳn phần Python và dán mảng `vectors` vào bất cứ thứ gì dự án bạn dùng cho kiểm thử theo bảng. Mỗi mục là một thời điểm UTC, giờ treo tường Bắc Kinh tương ứng, pha mong đợi, và một dòng nói nó phân biệt điều gì.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## Ở nơi khác
