@@ -48,7 +48,7 @@ node conformance/run.mjs --detail
 `phase_at`을 이식하거나(서른 줄 남짓한 심심한 코드이고 스케줄은 데이터입니다), Python은 완전히 무시하고 `vectors` 배열을 프로젝트의 표 기반 테스트에 붙여 넣으세요. 각 항목은 UTC 시각, 대응하는 베이징 벽시계, 기대되는 구간, 그리고 '이 벡터가 무엇을 가려내는가' 한 줄입니다.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py     # 20/20 passed
 ```
 
 ## 다른 곳
