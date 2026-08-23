@@ -13,6 +13,36 @@ That instant is `2026-08-22T16:00:00Z`. Off-peak is half of peak. The daily
 peak windows are Beijing 09:00–12:00 and 14:00–18:00, i.e. `01:00-04:00` and
 `06:00-10:00` UTC.
 
+### The English page drops a timezone (re-read 2026-08-23)
+
+The rule is in force as of today, and the announcement quoted above is no longer
+on the page — both language versions now carry the steady-state footnote
+instead. They do not say the same thing:
+
+> **EN** — Off-peak rates are half of the peak rates. Peak hours are 01:00 -
+> 04:00 and 06:00 - 10:00 UTC, Monday through Friday (all other hours are
+> off-peak).
+
+> **ZH** — 空闲时段价格为高峰时段价格的一半。高峰时段为北京时间周一至周五 9:00 - 12:00、14:00 -
+> 18:00（其余为空闲时段）。
+
+The hours agree — Beijing 09:00–12:00 and 14:00–18:00 *are* 01:00–04:00 and
+06:00–10:00 UTC. The calendar does not. The Chinese sentence puts the weekday in
+Beijing time (北京时间周一至周五); the English one attaches `UTC` to the hours and
+leaves “Monday through Friday” unqualified, which reads as UTC weekdays. The two
+readings differ over 16:00–24:00 UTC on Friday and on Sunday — sixteen hours a
+week, every week.
+
+And by failure mode 3 below, nothing catches it: both peak windows sit clear of
+16:00–24:00 UTC, so the two calendars produce identical prices at all 168 hours
+of the current schedule. An implementation written from the English sentence is
+wrong in a way that no vector against the published windows can show.
+
+This repository follows the Chinese wording and reads the weekday off the
+Beijing calendar. If you think that is the wrong call, the vectors it rests on
+are `2026-08-28T16:30:00Z` and `2026-08-30T16:30:00Z` — open an issue on those
+two rather than on prose.
+
 ```
 python3 check_vectors.py     # 18/18 passed
 ```
