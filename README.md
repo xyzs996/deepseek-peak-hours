@@ -1,5 +1,7 @@
 # DeepSeek peak and off-peak hours — Beijing weekdays, not UTC
 
+**English** · [中文](./README_CN.md) · [Español](./README_ES.md) · [日本語](./README_JA.md) · [한국어](./README_KO.md) · [Tiếng Việt](./README_VI.md) · [Français](./README_FR.md) · [Deutsch](./README_DE.md) · [Русский](./README_RU.md) · [Bahasa Indonesia](./README_ID.md)
+
 Peak is **Beijing 09:00–12:00 and 14:00–18:00, Monday to Friday** — `01:00-04:00`
 and `06:00-10:00` UTC — and off-peak, everything else, is half price. Since
 2026-08-23 the whole weekend is off-peak, and that weekend is bounded in Beijing
