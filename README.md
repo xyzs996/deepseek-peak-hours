@@ -8,6 +8,19 @@ and `06:00-10:00` UTC — and off-peak, everything else, is half price. Since
 time: it runs from **16:00 UTC Friday to 16:00 UTC Sunday**, not midnight to
 midnight UTC.
 
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail     # nine published DeepSeek billing plugins. two pass.
+python3 check_vectors.py              # 18/18
+node check_vectors.mjs                # 18/18, same program, no dependencies
+```
+
+Fifteen dated boundary vectors, a ~30-line reference implementation in two
+languages, and [a conformance harness](./conformance/) that runs the vectors
+against the actual peak predicate of nine published plugins. On 2026-08-23,
+seven of the nine billed the weekend at double, and every one of them had the
+hour arithmetic right — what they were missing was a place to put the weekday.
+
 **Is it peak right now?**
 [This page answers it live](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html)
 — it resolves the clock in your browser, applies the weekday and the weekend
