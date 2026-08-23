@@ -60,7 +60,9 @@ are `2026-08-28T16:30:00Z` and `2026-08-30T16:30:00Z` — open an issue on those
 two rather than on prose.
 
 ```
-python3 check_vectors.py     # 18/18 passed
+python3 check_vectors.py            # 18/18 passed
+node check_vectors.mjs              # 18/18 passed — same program, no dependencies
+node conformance/run.mjs --detail   # the same vectors against nine published plugins
 ```
 
 Used in anger by <https://xyzs996.github.io/llm-cost-calculator/>, whose
@@ -115,13 +117,29 @@ that claim to catch it:
 | effective-date gate removed | `2026-08-22T01:30:00Z`, `2026-08-22T09:59:59Z`, and the pre-rule boundary vector |
 | countdown does not skip weekend-resident edges | `2026-08-28T10:30:00Z` |
 
+## Two of nine published plugins pass
+
+[`conformance/`](./conformance/) runs these vectors against the actual
+peak/off-peak predicate of nine published DeepSeek billing plugins — a faithful
+transcription of each, pinned to a commit, ~10 lines of arithmetic apiece. On
+2026-08-23, two passed everything they could run and seven failed the same
+weekend vectors. Each of the seven has an issue open on its own tracker with the
+failing instants and a patch in its own language; the directory is that finding
+made re-runnable, and rows get re-run when a project says it is fixed.
+
+If you think a vector's *expectation* is wrong — in particular if you read the
+English footnote as UTC weekdays — open an issue on the vectors and say which
+instant should flip. The table follows the vectors.
+
 ## Using it
 
-Either port `phase_at` — it is thirty boring lines and the schedule is data —
-or ignore the Python entirely and paste the `vectors` array into whatever your
-project uses for table-driven tests. Each entry is a UTC instant, the Beijing
-wall clock it corresponds to, the expected phase, and one line on what it
-discriminates.
+Either port `phase_at` / `phaseAt` — it is thirty boring lines and the schedule
+is data, and it exists in both Python and dependency-free JavaScript because the
+projects that get this wrong are written in JavaScript and TypeScript — or
+ignore the reference implementations entirely and paste the `vectors` array into
+whatever your project uses for table-driven tests. Each entry is a UTC instant,
+the Beijing wall clock it corresponds to, the expected phase, and one line on
+what it discriminates.
 
 ## Where the sample came from
 
