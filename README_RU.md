@@ -46,4 +46,4 @@ python3 check_vectors.py     # 18/18 passed
 
 - То же правило прозой, обе языковые версии сноски поставщика рядом, и каждая ставка перечитывается ежедневно: <https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html>
 - Калькулятор, применяющий эти правила к реальному счёту: выберите модель, задайте структуру токенов — и он скажет, на какой стороне тарифа вы сейчас и сколько стоит подождать: <https://xyzs996.github.io/llm-cost-calculator/>
-- Полный README на английском (вектор за вектором, таблица мутационных тестов и выборка из 19 реализаций): <https://github.com/xyzs996/deepseek-peak-offpeak-vectors/blob/main/README.md>
+- Полный README на английском (вектор за вектором, таблица мутационных тестов и выборка из 19 реализаций): <https://github.com/xyzs996/deepseek-peak-hours/blob/main/README.md>
