@@ -6,6 +6,13 @@ El horario peak es **de lunes a viernes, 09:00–12:00 y 14:00–18:00 hora de P
 
 **¿Estamos en hora punta ahora mismo?** [Esta página lo responde en vivo](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html): resuelve el reloj en tu navegador, aplica la regla del día de la semana y la del fin de semana, y te dice en qué lado de la tarifa estás y cuánto falta para que cambie. Sin cuenta y sin instalar nada.
 
+**Nueve plugins de facturación de DeepSeek publicados, pasados por esta tabla: dos la superan entera.** Sin dependencias, Node 16+; la función de cada proyecto está transcrita en `conformance/adapters.mjs` y fijada a un commit.
+
+```
+git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
+node conformance/run.mjs --detail
+```
+
 ## Precios (USD por millón de tokens, off-peak / peak)
 
 | Modelo | Entrada, acierto de caché | Entrada, fallo de caché | Salida |
