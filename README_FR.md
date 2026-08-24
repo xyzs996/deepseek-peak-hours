@@ -6,7 +6,7 @@ Les heures pleines vont du **lundi au vendredi, 09:00–12:00 et 14:00–18:00 h
 
 **Sommes-nous en heures pleines en ce moment ?** [Cette page y répond en direct](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) : elle résout l'horloge dans votre navigateur, applique la règle du jour de la semaine et celle du week-end, puis vous dit de quel côté du tarif vous êtes et dans combien de temps cela change. Sans compte, sans rien à installer.
 
-**Neuf plugins de facturation DeepSeek publiés, passés au crible de cette table : deux réussissent tout.** Aucune dépendance, Node 16+ ; la fonction de chaque projet est transcrite dans `conformance/adapters.mjs`, figée sur un commit.
+**Neuf plugins de facturation DeepSeek publiés, passés au crible de cette table : trois réussissent tout.** Aucune dépendance, Node 16+ ; la fonction de chaque projet est transcrite dans `conformance/adapters.mjs`, figée sur un commit.
 
 ```
 git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
