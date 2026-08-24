@@ -6,7 +6,7 @@ Cao điểm là **thứ Hai đến thứ Sáu, 09:00–12:00 và 14:00–18:00 g
 
 **Bây giờ là giờ cao điểm hay thấp điểm?** [Trang này trả lời ngay](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) — nó tính đồng hồ ngay trên trình duyệt của bạn, áp dụng cả quy tắc ngày trong tuần lẫn quy tắc cuối tuần, rồi cho biết bạn đang ở mức giá nào và còn bao lâu nữa thì đổi. Không cần tài khoản, không cần cài gì.
 
-**Chín plugin tính cước DeepSeek đã công bố, chạy qua bảng này: hai plugin đúng hết.** Không phụ thuộc gì, Node 16+; hàm xác định giờ cao điểm của từng dự án được chép lại trong `conformance/adapters.mjs`, ghim theo commit.
+**Chín plugin tính cước DeepSeek đã công bố, chạy qua bảng này: ba plugin đúng hết.** Không phụ thuộc gì, Node 16+; hàm xác định giờ cao điểm của từng dự án được chép lại trong `conformance/adapters.mjs`, ghim theo commit.
 
 ```
 git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
