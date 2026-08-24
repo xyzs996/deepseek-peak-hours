@@ -6,7 +6,7 @@ Peak ist **Montag bis Freitag, 09:00–12:00 und 14:00–18:00 Pekinger Zeit** �
 
 **Ist gerade Peak oder Off-Peak?** [Diese Seite beantwortet das live](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html) – sie löst die Uhr im Browser auf, wendet die Wochentags- und die Wochenendregel an und sagt Ihnen, auf welcher Seite des Tarifs Sie stehen und wie lange es noch dauert, bis sich das ändert. Ohne Konto, ohne Installation.
 
-**Neun veröffentlichte DeepSeek-Abrechnungs-Plugins, gegen diese Tabelle laufen gelassen: zwei bestehen alles.** Ohne Abhängigkeiten, Node 16+; die Prüffunktion jedes Projekts ist in `conformance/adapters.mjs` transkribiert und auf einen Commit festgenagelt.
+**Neun veröffentlichte DeepSeek-Abrechnungs-Plugins, gegen diese Tabelle laufen gelassen: drei bestehen alles.** Ohne Abhängigkeiten, Node 16+; die Prüffunktion jedes Projekts ist in `conformance/adapters.mjs` transkribiert und auf einen Commit festgenagelt.
 
 ```
 git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
