@@ -10,7 +10,7 @@ midnight UTC.
 
 ```
 git clone https://github.com/xyzs996/deepseek-peak-hours && cd deepseek-peak-hours
-node conformance/run.mjs --detail     # nine published DeepSeek billing plugins. two pass.
+node conformance/run.mjs --detail     # nine published DeepSeek billing plugins. three pass.
 python3 check_vectors.py              # 20/20
 node check_vectors.mjs                # 20/20, same program, no dependencies
 ```
@@ -19,9 +19,10 @@ Eighteen dated boundary vectors, two checks that the reference implementation
 reads the weekday axis out of the schedule instead of hard-coding a weekend,
 a ~30-line reference implementation in two languages, and [a conformance
 harness](./conformance/) that runs the vectors against the actual peak
-predicate of nine published plugins. On 2026-08-23,
-seven of the nine billed the weekend at double, and every one of them had the
-hour arithmetic right — what they were missing was a place to put the weekday.
+predicate of nine published plugins. On 2026-08-23, seven of the nine billed
+the weekend at double, and every one of them had the hour arithmetic right —
+what they were missing was a place to put the weekday. One has fixed it since
+(re-run 2026-08-24), so it is six.
 
 **Is it peak right now?**
 [This page answers it live](https://xyzs996.github.io/llm-api-pricing/deepseek-peak-hours.html)
@@ -132,15 +133,25 @@ that claim to catch it:
 | effective-date gate removed | `2026-08-22T01:30:00Z`, `2026-08-22T09:59:59Z`, and the pre-rule boundary vector |
 | countdown does not skip weekend-resident edges | `2026-08-28T10:30:00Z` |
 
-## Two of nine published plugins pass
+## Three of nine published plugins pass
 
 [`conformance/`](./conformance/) runs these vectors against the actual
 peak/off-peak predicate of nine published DeepSeek billing plugins — a faithful
 transcription of each, pinned to a commit, ~10 lines of arithmetic apiece. On
 2026-08-23, two passed everything they could run and seven failed the same
-weekend vectors. Each of the seven has an issue open on its own tracker with the
+weekend vectors. Each of the seven got an issue on its own tracker with the
 failing instants and a patch in its own language; the directory is that finding
 made re-runnable, and rows get re-run when a project says it is fixed.
+
+**Re-run 2026-08-24:** one of the seven is fixed and its row now passes, so it
+is three and six. [`dsh-calculator`](https://github.com/bobcat848/dsh-calculator)
+shipped v1.3.4 with two details worth stealing: the weekend rule is gated on its
+*own* constant rather than on the schedule's start date, so re-costing a
+Saturday from before 2026-08-23 still bills at peak the way it actually was
+billed; and the weekday comes off the day index in the Beijing calendar rather
+than off `getUTCDay()`, so it stays right if a window ever moves past 16:00 UTC.
+The other two files that changed since the first run were re-read and are
+unchanged in substance, so their rows stand.
 
 The live scoreboard is [issue #1](https://github.com/xyzs996/deepseek-peak-hours/issues/1) — pinned, one row per project, each linked to its own tracker. Fixed it? Say so there and the row is re-run the same day. Think I transcribed your predicate wrong? That is a bug here, not a finding about your project, and it gets corrected there.
 
