@@ -153,12 +153,31 @@ export const adapters = [
   {
     id: "dsh-calculator",
     repo: "bobcat848/dsh-calculator",
-    at: "27881f2",
-    symbol: "lib/index.js :: isPeak",
+    at: "2787488",
+    symbol: "lib/index.js :: isPeak / isBeijingWeekend",
     lang: "JavaScript",
     windows: "hard-coded",
+    // Fixed in v1.3.4. Two things worth copying, both of which the earlier
+    // transcription had no equivalent of:
+    //
+    // WEEKEND_OFFPEAK_START_MS is its own constant, separate from
+    // PEAK_SCHEDULE_START_MS. A weekend before 2026-08-23 was genuinely billed
+    // at peak, so re-costing an older Saturday does not get halved. Most fixes
+    // for this reuse the schedule's own start date and quietly rewrite history.
+    //
+    // isBeijingWeekend takes the day index in the Beijing calendar before
+    // taking the weekday, rather than reading getUTCDay() off the unshifted
+    // instant -- so it stays right if a window ever moves past 16:00 UTC,
+    // which is the only reason the synthetic schedule exists.
     phase(atMs, scheduleId) {
       if (scheduleId !== "deepseek-live-2026-08-23") return null;
+      const WEEKEND_OFFPEAK_START_MS = Date.UTC(2026, 7, 22, 16, 0, 0);
+      const isBeijingWeekend = (ms) => {
+        const day = Math.floor((ms + 8 * HOUR_MS) / 86400000);
+        const weekday = (day + 4) % 7; // 0 = Sunday … 6 = Saturday
+        return weekday === 0 || weekday === 6;
+      };
+      if (atMs >= WEEKEND_OFFPEAK_START_MS && isBeijingWeekend(atMs)) return "offpeak";
       const hour = (new Date(atMs).getUTCHours() + 8) % 24;
       const peak = (hour >= 9 && hour < 12) || (hour >= 14 && hour < 18);
       return peak ? "peak" : "offpeak";
@@ -185,7 +204,7 @@ export const adapters = [
   {
     id: "dsh-cost-meter",
     repo: "Han-1413141/dsh-cost-meter",
-    at: "6221646",
+    at: "2b063e1",
     symbol: "lib/pricing.js :: isPeakHour / weekendZoneAt",
     lang: "JavaScript",
     windows: "configurable (UTC hours)",
